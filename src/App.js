@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
 // Pages
 import Home from "./pages/Home";
@@ -10,9 +10,17 @@ import RootLayout from "./layouts/RootLayout";
 function App() {
   return (
     <BrowserRouter>
+      <header>
+        <nav>
+          <h1>Jobarouter</h1>
+          <Link to="/">Home</Link>
+          <NavLink to="about">About</NavLink>
+          <NavLink to="help">Help</NavLink>
+          <NavLink to="careers">Careers</NavLink>
+        </nav>
+      </header>
       <main>
         <Routes>
-          <Route path="/" element={<RootLayout />} />
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
         </Routes>
