@@ -16,6 +16,7 @@ export default function RootLayout() {
         {/* <Breadcrumbs /> */}
       </header>
       <main>
+        {/* Outlet renders main content simular to "@yield" in Laravel Blade templates */}
         <Outlet />
       </main>
     </div>
