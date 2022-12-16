@@ -8,9 +8,9 @@ import {
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Faq from "./pages/help/Faq";
 
 // Layouts
-// RootLayout with surround every page
 import RootLayout from "./layouts/RootLayout";
 import HelpLayout from "./layouts/HelpLayout";
 
@@ -19,7 +19,9 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="help" element={<HelpLayout />} />
+      <Route path="help" element={<HelpLayout />}>
+        <Route path="faq" element={<Faq />} />
+      </Route>
     </Route>
   )
 );
