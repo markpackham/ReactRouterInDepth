@@ -8,6 +8,7 @@ import {
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 import Faq from "./pages/help/Faq";
 import Contact from "./pages/help/Contact";
 
@@ -26,6 +27,8 @@ const router = createBrowserRouter(
         <Route path="faq" element={<Faq />} />
         <Route path="contact" element={<Contact />} />
       </Route>
+      {/* path="*", catch all route handy for 404 pages */}
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
