@@ -18,7 +18,7 @@ export default function Careers() {
 // Loader function
 export const carrersLoader = async () => {
   // whatever port json-server is using
-  const res = await fetch("http://localhost:4444");
+  const res = await fetch("http://localhost:4444/careers");
 
   return res.json();
 };
