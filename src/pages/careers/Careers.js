@@ -5,3 +5,6 @@ export default function Careers() {
 
   return <div className="careers"></div>;
 }
+
+// Loader function
+const carrersLoader = async () => {};
