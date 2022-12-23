@@ -12,6 +12,9 @@ import NotFound from "./pages/NotFound";
 import Faq from "./pages/help/Faq";
 import Contact from "./pages/help/Contact";
 import Careers, { carrersLoader } from "./pages/careers/Careers";
+import CareerDetails, {
+  careerDetailsLoader,
+} from "./pages/careers/CareerDetails";
 
 // Layouts
 import RootLayout from "./layouts/RootLayout";
@@ -29,9 +32,17 @@ const router = createBrowserRouter(
         <Route path="faq" element={<Faq />} />
         <Route path="contact" element={<Contact />} />
       </Route>
+
+      {/* Careers section */}
       <Route path="careers" element={<CareersLayout />}>
         <Route index element={<Careers />} loader={carrersLoader} />
+        <Route
+          path=":id"
+          element={<CareerDetails />}
+          loader={careerDetailsLoader}
+        />
       </Route>
+
       {/* path="*", catch all route handy for 404 pages */}
       <Route path="*" element={<NotFound />} />
     </Route>
