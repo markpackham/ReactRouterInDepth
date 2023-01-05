@@ -18,3 +18,14 @@ export default function Contact() {
     </div>
   );
 }
+
+export const contactAction = async ({ request }) => {
+  const data = await request.formData();
+
+  const submission = {
+    email: data.get("email"),
+    message: data.get("message"),
+  };
+
+  console.log(submission);
+};
