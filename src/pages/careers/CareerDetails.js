@@ -10,10 +10,7 @@ export default function CareerDetails() {
       <p>Starting salary: {career.salary}</p>
       <p>Location: {career.location}</p>
       <div className="details">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur,
-          distinctio?
-        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
       </div>
     </div>
   );
@@ -23,10 +20,10 @@ export default function CareerDetails() {
 export const careerDetailsLoader = async ({ params }) => {
   const { id } = params;
 
-  const res = await fetch(`http://localhost:4444/careers/${id}`);
+  const res = await fetch("http://localhost:4000/careers/" + id);
 
   if (!res.ok) {
-    throw Error("Could not find that career");
+    throw Error("Could not find that career.");
   }
 
   return res.json();

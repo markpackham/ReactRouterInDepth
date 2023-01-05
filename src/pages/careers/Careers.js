@@ -1,28 +1,30 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
-export default function Careers() {
-  const careers = useLoaderData();
+export default function CareerDetails() {
+  const { id } = useParams();
+  const career = useLoaderData();
+
   return (
-    <div className="careers">
-      {careers.map((career) => (
-        // <Link to={`/careers/${career.id}`} key={career.id}>
-        <Link to={career.id.toString()} key={career.id}>
-          <p>{career.title}</p>
-          <p>Based in {career.location}</p>
-          <p>JS Crypto UUID: {crypto.randomUUID()}</p>
-        </Link>
-      ))}
+    <div className="career-details">
+      <h2>Career Details for {career.title}</h2>
+      <p>Starting salary: {career.salary}</p>
+      <p>Location: {career.location}</p>
+      <div className="details">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed
+          sunt ipsam quam assumenda quasi ipsa facilis laborum rerum voluptatem!
+        </p>
+      </div>
     </div>
   );
 }
 
-// Loader function
-export const carrersLoader = async () => {
-  // whatever port json-server is using
-  const res = await fetch("http://localhost:4444/careers");
+// Data loader
+export const careersLoader = async () => {
+  const res = await fetch("http://localhost:4000/careers");
 
   if (!res.ok) {
-    throw Error("Could not fetch careers");
+    throw Error("Could not fetch the list of careers");
   }
 
   return res.json();
