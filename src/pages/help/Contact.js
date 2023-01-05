@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 
 export default function Contact() {
   return (
@@ -27,5 +27,8 @@ export const contactAction = async ({ request }) => {
     message: data.get("message"),
   };
 
-  console.log(submission);
+  // send post request
+
+  // redirect user
+  return redirect("/");
 };
