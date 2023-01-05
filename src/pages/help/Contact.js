@@ -1,6 +1,8 @@
-import { Form, redirect } from "react-router-dom";
+import { Form, redirect, useActionData } from "react-router-dom";
 
 export default function Contact() {
+  const data = useActionData();
+
   return (
     <div className="contact">
       <h3>Contact Us</h3>
@@ -14,6 +16,8 @@ export default function Contact() {
           <textarea name="message" required></textarea>
         </label>
         <button>Submit</button>
+
+        {data && data.error && <p>{data.error}</p>}
       </Form>
     </div>
   );
@@ -28,12 +32,10 @@ export const contactAction = async ({ request }) => {
   };
 
   // send post request
-  if (submission.message.length > 1) {
-    return {
-      error: "Message must be over 1 char long",
-    };
+  if (submission.message.length < 5) {
+    return { error: "Message must be over 5 chars long." };
   }
 
-  // redirect user
+  // redirect the user
   return redirect("/");
 };
