@@ -28,6 +28,11 @@ export const contactAction = async ({ request }) => {
   };
 
   // send post request
+  if (submission.message.length > 1) {
+    return {
+      error: "Message must be over 1 char long",
+    };
+  }
 
   // redirect user
   return redirect("/");
