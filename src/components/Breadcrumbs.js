@@ -3,7 +3,9 @@ import { useLocation } from "react-router-dom";
 export default function Breadcrumbs() {
   const location = useLocation();
 
-  console.log(location);
+  let currentLink = "";
+
+  const crumbs = location.pathname.split("/");
 
   return <div>Breadcrumbs</div>;
 }
