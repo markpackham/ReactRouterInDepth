@@ -35,13 +35,16 @@ const router = createBrowserRouter(
       </Route>
 
       {/* Careers section */}
-      <Route path="careers" element={<CareersLayout />}>
+      <Route
+        path="careers"
+        element={<CareersLayout />}
+        errorElement={<CareersError />}
+      >
         <Route index element={<Careers />} loader={carrersLoader} />
         <Route
           path=":id"
           element={<CareerDetails />}
           loader={careerDetailsLoader}
-          errorElement={<CareersError />}
         />
       </Route>
 

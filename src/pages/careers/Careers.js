@@ -21,5 +21,9 @@ export const carrersLoader = async () => {
   // whatever port json-server is using
   const res = await fetch("http://localhost:4444/careers");
 
+  if (!res.ok) {
+    throw Error("Could not fetch careers");
+  }
+
   return res.json();
 };
